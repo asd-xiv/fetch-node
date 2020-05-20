@@ -1,55 +1,54 @@
 {
-  "name": "@mutant-ws/fetch",
+  "name": "@mutant-ws/fetch-node",
   "version": "0.0.1",
-  "description": "Tiny fetch wrapper for browser and node",
+  "description": "Thin wrapper over `node-fetch`",
   "license": "MIT",
-  "homepage": "https://github.com/mutant-ws/fetch#readme",
+  "homepage": "https://github.com/mutant-ws/fetch-node",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mutant-ws/fetch.git"
+    "url": "git+https://github.com/mutant-ws/fetch-node.git"
   },
   "bugs": {
-    "url": "https://github.com/mutant-ws/fetch/issues"
+    "url": "https://github.com/mutant-ws/fetch-node/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
-    "url": "https://github.com/andrei-dumitrescu"
+    "url": "https://github.com/andreid-asd"
   },
-  "main": "dist/index.js",
+  "main": "src/index.js",
   "keywords": [
     "fetch",
-    "node",
-    "browser"
+    "node"
   ],
+  "engines": {
+    "node": ">=12"
+  },
   "scripts": {
     "----UTIL": "",
     "setup": "rm -rf ./node_modules && npm i && npm audit fix",
     "setup:ci": "npm ci && npm audit fix",
     "update": "npm-check --update",
     "----BUILD": "",
-    "build": "rm -rf dist/* && babel src --out-dir dist",
-    "prepare": "npm run build",
     "prepublishOnly": "npm audit fix && npm test && npm run lint",
     "----LINT": "",
     "lint:md": "markdownlint *.md",
     "lint:js": "eslint --ext .jsx,.js src",
     "lint": "npm run lint:md && npm run lint:js",
     "----TEST": "",
-    "test": "testcafe firefox src/index.test.js"
+    "test": "node tests/index.js",
+    "tdd": "nodemon --watch src --watch tests --exec \"npm test\"",
+    "coverage:ci": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "@mutant-ws/m": "^1.13.0",
-    "node-fetch": "^2.6.0"
+    "@mutant-ws/m": "^1.15.0",
+    "form-data": "^3.0.0",
+    "node-fetch": "^2.6.0",
+    "rfc-3986": "^1.0.1"
   },
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.9.6",
-    "@babel/plugin-transform-runtime": "^7.9.6",
-    "@babel/preset-env": "^7.9.6",
-    "@babel/register": "^7.9.0",
     "@mutant-ws/eslint-config": "^5.10.0",
     "babel-eslint": "^10.1.0",
-    "browserify": "^16.5.1",
+    "coveralls": "^3.1.0",
     "eslint": "^7.0.0",
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-html": "^6.0.2",
@@ -60,10 +59,14 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-unicorn": "^20.0.0",
     "http-server": "^0.12.3",
-    "markdownlint-cli": "^0.23.0",
+    "markdownlint-cli": "^0.23.1",
+    "nodemon": "^2.0.4",
     "npm-check": "^5.9.2",
-    "parcel": "^2.0.0-alpha.3.2",
+    "nyc": "^15.0.1",
     "prettier": "^2.0.5",
-    "testcafe": "^1.8.4"
+    "qs": "^6.9.4",
+    "riteway": "^6.1.2",
+    "semantic-release": "^17.0.7",
+    "tap-nirvana": "^1.1.0"
   }
 }
