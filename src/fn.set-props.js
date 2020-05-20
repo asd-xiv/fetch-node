@@ -1,12 +1,12 @@
-import { trim, is, isObject } from "@mutant-ws/m"
+const { trim, is, isObject } = require("@mutant-ws/m")
 
-export const set = props => ({ baseURL, headers, queryStringifyFn }) => {
+const setProps = props => ({ baseURL, headers, queryStringifyFn }) => {
   if (is(queryStringifyFn)) {
     if (typeof queryStringifyFn === "function") {
       props.queryStringifyFn = queryStringifyFn
     } else {
       throw new TypeError(
-        `mutant-fetch: "queryStringifyFn" should be of type function, received ${JSON.stringify(
+        `@mutant-ws/fetch-node: "queryStringifyFn" should be a function, received ${JSON.stringify(
           queryStringifyFn
         )}`
       )
@@ -21,7 +21,7 @@ export const set = props => ({ baseURL, headers, queryStringifyFn }) => {
       }
     } else {
       throw new TypeError(
-        `mutant-fetch: "headers" should be of type object, received ${JSON.stringify(
+        `@mutant-ws/fetch-node: "headers" should be an object, received ${JSON.stringify(
           headers
         )}`
       )
@@ -33,10 +33,12 @@ export const set = props => ({ baseURL, headers, queryStringifyFn }) => {
       props.baseURL = trim("/")(baseURL)
     } else {
       throw new TypeError(
-        `mutant-fetch: "baseURL" should be of type string, received ${JSON.stringify(
+        `@mutant-ws/fetch-node: "baseURL" should be a string, received ${JSON.stringify(
           baseURL
         )}`
       )
     }
   }
 }
+
+module.exports = { setProps }

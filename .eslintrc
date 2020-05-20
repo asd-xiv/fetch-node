@@ -4,11 +4,10 @@
   "root": true,
 
   "extends": [
-    "@mutant-ws/eslint-config/targets/html",
+    "@mutant-ws/eslint-config/targets/node",
   ],
 
   "globals": {
-    require: true,
     fixture: true,
     test: true
   },
@@ -23,8 +22,6 @@
       "lifetime": 5,
     },
 
-    // Can add a path segment here that will act like a source root, for
-    // in-project aliasing (i.e. `import MyStore from 'stores/my-store'`)
     "import/resolver": {
       "node": {
         "extensions": [".js"],
