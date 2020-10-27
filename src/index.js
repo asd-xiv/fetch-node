@@ -1,10 +1,8 @@
-/* eslint-disable import/exports-last */
-
 const fetch = require("node-fetch")
 const FormData = require("form-data")
 const RFC3986 = require("rfc-3986")
 const {
-  get,
+  read,
   pipe,
   reduce,
   startsWith,
@@ -13,7 +11,7 @@ const {
   same,
   toLower,
   isEmpty,
-} = require("@mutant-ws/m")
+} = require("@asd14/m")
 
 const { setProps } = require("./fn.set-props")
 const { HTTPError } = require("./fn.http-error")
@@ -46,7 +44,7 @@ const request = (
 ) => {
   if (!isEmpty(query) && isEmpty(props.queryStringifyFn)) {
     throw new TypeError(
-      `@mutant-ws/fetch-node: ${method}:${path} - Cannot send query params without providing "queryStringifyFn"`
+      `@asd14/fetch-node: ${method}:${path} - Cannot send query params without providing "queryStringifyFn"`
     )
   }
 
@@ -54,7 +52,7 @@ const request = (
 
   if (isEmpty(props.baseURL) && !isPathURI) {
     throw new TypeError(
-      `@mutant-ws/fetch-node: ${method}:${path} - Cannot make request with non-absolute path and no "baseURL"`
+      `@asd14/fetch-node: ${method}:${path} - Cannot make request with non-absolute path and no "baseURL"`
     )
   }
 
@@ -68,8 +66,7 @@ const request = (
             ...acc,
             [toLower(key)]: value,
           },
-    {}
-  )(
+    {},
     Object.entries({
       accept: "application/json",
       "content-type": "application/json",
@@ -79,7 +76,7 @@ const request = (
   )
 
   const isReqJSON = pipe(
-    get("content-type"),
+    read("content-type"),
     startsWith("application/json")
   )(HEADERS)
 

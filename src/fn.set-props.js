@@ -1,4 +1,4 @@
-const { trim, is, isObject } = require("@mutant-ws/m")
+const { trim, is, isObject } = require("@asd14/m")
 
 const setProps = props => ({ baseURL, headers, queryStringifyFn }) => {
   if (is(queryStringifyFn)) {
@@ -6,7 +6,7 @@ const setProps = props => ({ baseURL, headers, queryStringifyFn }) => {
       props.queryStringifyFn = queryStringifyFn
     } else {
       throw new TypeError(
-        `@mutant-ws/fetch-node: "queryStringifyFn" should be a function, received ${JSON.stringify(
+        `@asd14/fetch-node: "queryStringifyFn" should be a function, received ${JSON.stringify(
           queryStringifyFn
         )}`
       )
@@ -21,7 +21,7 @@ const setProps = props => ({ baseURL, headers, queryStringifyFn }) => {
       }
     } else {
       throw new TypeError(
-        `@mutant-ws/fetch-node: "headers" should be an object, received ${JSON.stringify(
+        `@asd14/fetch-node: "headers" should be an object, received ${JSON.stringify(
           headers
         )}`
       )
@@ -30,10 +30,10 @@ const setProps = props => ({ baseURL, headers, queryStringifyFn }) => {
 
   if (is(baseURL)) {
     if (typeof baseURL === "string") {
-      props.baseURL = trim("/")(baseURL)
+      props.baseURL = trim("/", baseURL)
     } else {
       throw new TypeError(
-        `@mutant-ws/fetch-node: "baseURL" should be a string, received ${JSON.stringify(
+        `@asd14/fetch-node: "baseURL" should be a string, received ${JSON.stringify(
           baseURL
         )}`
       )
