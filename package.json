@@ -1,19 +1,19 @@
 {
-  "name": "@mutant-ws/fetch-node",
+  "name": "@asd14/fetch-node",
   "version": "0.0.1",
   "description": "Thin wrapper over `node-fetch`",
   "license": "MIT",
-  "homepage": "https://github.com/mutant-ws/fetch-node",
+  "homepage": "https://github.com/asd-xiv/fetch-node",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mutant-ws/fetch-node.git"
+    "url": "git+https://github.com/asd-xiv/fetch-node.git"
   },
   "bugs": {
-    "url": "https://github.com/mutant-ws/fetch-node/issues"
+    "url": "https://github.com/asd-xiv/fetch-node/issues"
   },
   "author": {
     "name": "Andrei Dumitrescu",
-    "url": "https://github.com/andreid-asd"
+    "url": "https://github.com/andreidmt"
   },
   "main": "src/index.js",
   "keywords": [
@@ -40,33 +40,33 @@
     "coverage:ci": "nyc npm test && nyc report --reporter=text-lcov | coveralls"
   },
   "dependencies": {
-    "@mutant-ws/m": "^1.16.0",
+    "@asd14/m": "^3.1.1",
     "form-data": "^3.0.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "rfc-3986": "^1.0.1"
   },
   "devDependencies": {
-    "@mutant-ws/eslint-config": "^5.11.0",
+    "@asd14/eslint-config": "^5.16.0",
     "babel-eslint": "^10.1.0",
     "coveralls": "^3.1.0",
-    "eslint": "^7.6.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-plugin-html": "^6.0.2",
-    "eslint-plugin-import": "^2.22.0",
+    "eslint": "^7.12.1",
+    "eslint-config-prettier": "^6.14.0",
+    "eslint-plugin-html": "^6.1.0",
+    "eslint-plugin-import": "^2.22.1",
     "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-no-inferred-method-name": "^2.0.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-unicorn": "^21.0.0",
+    "eslint-plugin-unicorn": "^23.0.0",
     "http-server": "^0.12.3",
-    "markdownlint-cli": "^0.23.2",
-    "nodemon": "^2.0.4",
+    "markdownlint-cli": "^0.24.0",
+    "nodemon": "^2.0.6",
     "npm-check": "^5.9.2",
     "nyc": "^15.1.0",
-    "prettier": "^2.0.5",
+    "prettier": "^2.1.2",
     "qs": "^6.9.4",
-    "riteway": "^6.1.2",
-    "semantic-release": "^17.1.1",
+    "riteway": "^6.2.1",
+    "semantic-release": "^17.2.1",
     "tap-nirvana": "^1.1.0"
   }
 }
