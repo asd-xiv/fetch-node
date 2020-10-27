@@ -4,7 +4,7 @@
   "root": true,
 
   "extends": [
-    "@mutant-ws/eslint-config/targets/node",
+    "@asd14/eslint-config/targets/node",
   ],
 
   "globals": {
