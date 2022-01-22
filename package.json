@@ -42,7 +42,7 @@
   "dependencies": {
     "@asd14/m": "^3.1.1",
     "form-data": "^3.0.0",
-    "node-fetch": "^2.6.1",
+    "node-fetch": "^3.1.1",
     "rfc-3986": "^1.0.1"
   },
   "devDependencies": {
